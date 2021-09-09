@@ -29,6 +29,7 @@ public class Parser {
         String[] wordArray = input.split(" ");
         String type = "";
         String description = "";
+        String timeString = "";
         LocalDateTime time = null;
 
         if (wordArray.length == 0) {
@@ -36,10 +37,9 @@ public class Parser {
         } else {
             type = wordArray[0];
         }
-
+      
         assert wordArray.length > 0;
 
-        String timeString = "";
         int pointer = 1;
         while (pointer < wordArray.length
                 && !wordArray[pointer].equals("/by")
