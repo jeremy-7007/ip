@@ -37,8 +37,6 @@ public class Parser {
         } else {
             type = wordArray[0];
         }
-      
-        assert wordArray.length > 0;
 
         int pointer = 1;
         while (pointer < wordArray.length
@@ -48,20 +46,18 @@ public class Parser {
             pointer++;
         }
         pointer++;
-        description = description.trim(); // delete the last space
-
-        assert pointer >= 2;
+        description = description.trim();   // delete the last space
 
         while (pointer < wordArray.length) {
             timeString += wordArray[pointer] + " ";
             pointer++;
         }
-        timeString = timeString.trim(); // delete the last space
+        timeString = timeString.trim();   // delete the last space
 
         try {
             time = LocalDateTime.parse(timeString, FORMATTER);
         } catch (DateTimeParseException e) {
-            // Does nothing and continue with time = null
+            // Does nothing
         }
 
         switch (type) {
